@@ -15,6 +15,11 @@ int main(int argc, char const *argv[])
     
     pair<char, int> *n = new pair<char, int>('a', 0);
     map<char, int> *c = new map<char, int>();
+    vector<int> r(4);
+    r[0] = 1;
+    r[1] = 2;
+    r[2] = 3;
+    r[3] = 4;
     vector<int> d;
     string m = "aaaa";
     int e[3] = {0, 0};
