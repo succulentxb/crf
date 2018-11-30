@@ -1,3 +1,9 @@
+//
+// Created by Succulent on 2018/11/30.
+//
+
+#ifndef CRF_UTILS_H
+#define CRF_UTILS_H
 #include <string>
 #include <sstream>
 #include <vector>
@@ -8,7 +14,7 @@ std::vector<std::string> split(const std::string &s, char delim) {
     std::stringstream ss(s);
     std::string item;
     std::vector<std::string> elems;
- 
+
     while (std::getline(ss, item, delim)) {
         elems.push_back(item);
     }
@@ -42,3 +48,4 @@ std::map<std::string, std::vector<char>> seq_map2vec(const std::map<char, char> 
 }
 
 //bool map_contain()
+#endif //CRF_UTILS_H

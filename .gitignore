@@ -1,7 +1,8 @@
-.vscode/
-crf_train.exe
-a.out
-a.out.dSYM/
-.gdbinit
-a.exe
-stl-views-1.0.3.gdb
+c++/.vscode/
+c++/crf_train.exe
+c++/a.out
+c++/a.out.dSYM/
+c++/.idea/
+c++/CMakeLists.txt
+c++/cmake-build-debug/
+c++/old_template.utf8
