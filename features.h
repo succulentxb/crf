@@ -75,21 +75,21 @@ void Features::train_features_val(const vector<char> &word_seq, const vector<cha
     int seq_len = word_seq.size();
     for (int i = 0; i < seq_len; i++) {
         for (string raw_temp: this->raw_templates) {
+            map<string, int*> tmp_map;
+            this->feature_funcs.emplace(raw_temp, tmp_map);
             
-            /*
             auto find_res = this->feature_funcs[raw_temp].find(word_seq[i]);
             auto res_end = this->feature_funcs[raw_temp].end();
             if (find_res == res_end) {
                 int tag_vals[4] = {0, 0, 0, 0};
                 this->feature_funcs[raw_temp];
             }
-            */
+            
            //this->feature_funcs[raw_temp][word_seq]
-           unordered_map<string, int*> temp_feature = this->feature_funcs[raw_temp];
+           //unordered_map<string, int*> temp_feature = this->feature_funcs[raw_temp];
            //auto find_res = temp_feature.find(word_seq[i]);
            //auto find_end = temp_feature.end();
            //auto
-           temp_feature.at(word_seq[i]).
         }
     }
 }

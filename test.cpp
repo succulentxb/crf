@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
     d.push_back(1);
     //b.insert(make_pair('b', 100));
     
-    b.emplace('b', 3);
+    b.insert(make_pair('b', 3));
     test(b);
     c->insert(make_pair('c', 100));
     cout << b['b'] << endl;
@@ -37,6 +37,6 @@ int main(int argc, char const *argv[])
 }
 
 void test(map<char, int> &b) {
-    b.emplace('b', 0);
-    b.emplace('b', 1);
+    b.insert(make_pair('b', 2));
+    b.insert(make_pair('b', 1));
 }
