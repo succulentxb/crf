@@ -8,8 +8,6 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     //locale china("chs");
-    wstring a = L"留心目标";
-    cout << L"留心比" << endl;
     string train_file;
     string lables_file;
     string template_file;

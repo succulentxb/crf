@@ -6,3 +6,6 @@ c++/.idea/
 c++/CMakeLists.txt
 c++/cmake-build-debug/
 c++/old_template.utf8
+java/.idea/
+java/out/
+java/java.iml
