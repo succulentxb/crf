@@ -9,3 +9,7 @@ c++/old_template.utf8
 java/.idea/
 java/out/
 java/java.iml
+.DS_Store
+.vscode/
+java/.DS_Store
+java/crf.iml
