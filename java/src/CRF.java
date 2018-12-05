@@ -14,22 +14,39 @@ public class CRF {
         Features features = new Features(temps, labels);
         featureInit(features, trainFileName);
         String resFileName = "result.utf8";
+        String testResFileName = "testResult.utf8";
         for (int i = 0; i < 100; i++) {
+            System.out.println("train time: " + (i+1));
             train(features, trainFileName, resFileName);
             evalAndWrite(features, trainFileName, resFileName);
-            System.out.println("train time: " + (i+1));
             System.out.println("------------------------------");
         }
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Input: ");
-            String test = scanner.nextLine();
-            String[] wordSeq = new String[test.length()];
-            for (int i = 0; i < test.length(); i++)
-                wordSeq[i] = "" + test.charAt(i);
-            String[][] res = features.tagWordSeq(wordSeq);
-            System.out.println(Utils.toString(res[0]));
-            System.out.println(Utils.toString(res[1]));
+            System.out.println("Input test file name: ");
+            String testFileName = scanner.nextLine();
+            FileInputStream testIS = new FileInputStream(testFileName);
+            WordSeqReader wordSeqReader = new WordSeqReader(new InputStreamReader(testIS));
+            FileOutputStream resOS = new FileOutputStream(testResFileName);
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(resOS));
+            ArrayList<String> wordList = wordSeqReader.readOneSeq();
+            int sen_num = 0;
+            while (wordList != null) {
+                System.out.println("test No." + (sen_num++) + " sentence.");
+                String[] wordSeq = Utils.strListToArray(wordList);
+                String[][] res = features.tagWordSeq(wordSeq);
+                for (int i = 0; i < res[0].length; i++) {
+                    bufferedWriter.write(res[0][i] + " " + res[1][i]);
+                    bufferedWriter.newLine();
+                }
+                bufferedWriter.newLine();
+                wordList = wordSeqReader.readOneSeq();
+            }
+            testIS.close();
+            wordSeqReader.close();
+            bufferedWriter.close();
+            resOS.close();
+            System.out.println("done!");
         }
     }
 

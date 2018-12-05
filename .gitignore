@@ -13,3 +13,5 @@ java/java.iml
 .vscode/
 java/.DS_Store
 java/crf.iml
+java/test.utf8
+java/testResult.utf8
